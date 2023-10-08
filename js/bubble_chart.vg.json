@@ -181,7 +181,7 @@
                 {"field": "Continent", "type": "nominal"},
                 {"field": "Country", "type": "nominal"},
                 {
-                  "field": "Diarrheal diseases death rate in children",
+                  "field": "Death rate",
                   "type": "quantitative",
                   "format": ".2f"
                 },
