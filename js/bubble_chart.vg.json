@@ -157,6 +157,7 @@
               "select": {"type": "point", "fields": ["Country"]}
             }
           ],
+
           "transform": [
             {"filter": {"param": "Continent_selection"}}, 
             {"filter": {"param": "Year"}}],
@@ -166,21 +167,33 @@
               "opacity": 0.9, 
               "tooltip": true},
             "encoding": {
-            "tooltip": [
-              {"field": "Continent", "type": "nominal"},
-              {"field": "Country", "type": "nominal"},
-              {
-                "field": "Death rate",
+              "size": {
+                "field": "Population",
                 "type": "quantitative",
-                "format": ".2f"
-              },
-              {
-                "field": "GDP per capita",
-                "type": "quantitative",
-                "format": ".2f"
-              }
-            ], 
-            "color": {"field": "name", "title": "Continent"}
+                "scale": {
+                  "type": "threshold",
+                  "domain": [1000000, 10000000, 50000000, 100000000, 500000000, 1000000000, 5000000000],
+                  "range": [10, 50, 100, 150, 200, 300, 400, 500]
+              }},
+              "tooltip": [
+                {"field": "Continent", "type": "nominal"},
+                {"field": "Country", "type": "nominal"},
+                {
+                  "field": "Death rate",
+                  "type": "quantitative",
+                  "format": ".2f"
+                },
+                {
+                  "field": "GDP per capita",
+                  "type": "quantitative",
+                  "format": ".2f"
+                },
+                {
+                  "field": "Population",
+                  "type": "quantitative"
+                }
+              ], 
+              "color": {"field": "name", "title": "Continent"}
           }
         },
         {
