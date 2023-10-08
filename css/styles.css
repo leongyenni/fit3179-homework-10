@@ -10,7 +10,7 @@ h1 {
 }
 
 #choropleth_map {
-	margin: 2rem 8rem
+	margin: 1rem 15rem;
 }
 
 #bubble_chart {
