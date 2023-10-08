@@ -44,7 +44,7 @@
                 {"id": "North America", "name": "North America"},
                 {"id": "Europe", "name": "Europe"},
                 {"id": "Oceania", "name": "Oceania"},
-                {"id": "Unknown", "name": "World"}
+                {"id": "World", "name": "World"}
               ]
             }
           }
