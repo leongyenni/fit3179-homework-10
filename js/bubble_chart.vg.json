@@ -224,6 +224,29 @@
           }
         },
         {
+          "mark": {
+              "type": "text",
+              "align": "right",
+              "baseline": "middle",
+              "fontSize": 11,
+              "fontStyle": "italic"
+          }, 
+          "transform": [
+            {"filter": {"param": "Continent_selection"}}, 
+            {"filter": {"param": "Year"}}],
+          "encoding": {
+            "text": {"field": "Country", "type": "nominal"},
+            "color": {"value": "black"},
+            "opacity": {
+              "condition": {
+                "test": "datum['Population'] > 100000000",
+                "value": 1
+              }, 
+              "value": 0
+            }
+          } 
+        },
+        {
           "transform": [
             {"filter": {"param": "hovered", "empty": false}},
             {"filter": {"not": {"param": "Year"}}}
