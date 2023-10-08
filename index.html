@@ -14,13 +14,14 @@
 <body>
   
 <div id="choropleth_map"></div>
+<div id="bubble_chart"></div>
 
 <script type="text/javascript">
 
-  var spec2 = "js/choropleth_map.vg.json";
-  vegaEmbed('#choropleth_map', spec2).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
+  var choropleth_map = "js/choropleth_map.vg.json";
+  var bubble_chart = "js/bubble_chart.vg.json"
+  vegaEmbed('#choropleth_map', choropleth_map).then(function(result) {}).catch(console.error);
+  vegaEmbed('#bubble_chart', bubble_chart).then(function(result) {}).catch(console.error);
 </script>
 
 </body>

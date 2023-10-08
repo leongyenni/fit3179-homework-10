@@ -56,7 +56,7 @@ for row in filtered_data:
 
 # Write the grouped and filtered data to a new CSV file
 output_file = 'grouped-death-rates-vs-gdp-per-capita.csv'
-with open(output_file, mode='w', newline='') as csvfile:
+with open(output_file, mode='w', newline='', encoding='utf-8') as csvfile:
     fieldnames = ['Continent', 'Country', 'Death rate',
                   'GDP per capita', 'Population', 'Year']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
