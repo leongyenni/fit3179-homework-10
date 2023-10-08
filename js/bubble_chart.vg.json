@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "An interactive scatter plot of global health statistics by country and year.",
+  "title": "Diarrheal diseases death rate in children vs GDP per capital",
   "data": {
     "url": "https://raw.githubusercontent.com/leongyenni/fit3179-homework-10/main/data/grouped-death-rates-vs-gdp-per-capita.csv",
     "format": {
@@ -54,14 +54,14 @@
         "x": {
           "field": "GDP per capita",
           "type": "quantitative",
-          "scale": { "type": "log"},
+          "scale": { "type": "log", "domain": [300, 100000]},
           "axis": {"tickCount": 5, "title": "GDP per capita"}
         },
         "y": {
           "field": "Death rate",
           "type": "quantitative",
-          "scale": {"type": "log"},
-          "axis": {"tickCount": 5, "title": "Death rate"}
+          "scale": {"type": "log", "domain": [1, 1500]},
+          "axis": {"tickCount": 5, "title": "Diarrheal diseases death rate in children"}
         }
       },
       "layer": [
@@ -81,10 +81,10 @@
               "scale": {"scheme": "category20"},
               "legend": {
                 "orient": "right",
-                "padding": 20,
+                "padding": 10,
                 "titleColor": "black",
-                "labelColor": "black"
-              }
+                "labelColor": "black"       
+             }
             },
             "opacity": {
               "condition": {
@@ -165,21 +165,23 @@
               "type": "circle", 
               "size": 210, 
               "opacity": 0.9, 
-              "tooltip": true},
-            "encoding": {
+              "tooltip": true
+            },
+              "encoding": {
               "size": {
                 "field": "Population",
                 "type": "quantitative",
                 "scale": {
                   "type": "threshold",
-                  "domain": [1000000, 10000000, 50000000, 100000000, 500000000, 1000000000, 5000000000],
+                  "domain": [1000000, 5000000, 10000000, 50000000, 100000000, 500000000, 1000000000, 5000000000],
                   "range": [10, 50, 100, 150, 200, 300, 400, 500]
-              }},
+                }
+              },
               "tooltip": [
                 {"field": "Continent", "type": "nominal"},
                 {"field": "Country", "type": "nominal"},
                 {
-                  "field": "Death rate",
+                  "field": "Diarrheal diseases death rate in children",
                   "type": "quantitative",
                   "format": ".2f"
                 },
@@ -218,7 +220,7 @@
           },
           "encoding": {
             "text": {"field": "Country"},
-            "color": {"field": "name", "title": "Country"}
+            "color": {"field": "name"}
           }
         },
         {
@@ -242,5 +244,7 @@
       ]
     }
   ],
-  "config": {}
+  "config": {
+    "title": { "fontSize": 20}
+  }
 }
