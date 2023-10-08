@@ -13,6 +13,7 @@
 },
   "width": 800,
   "height": 500,
+   
   "layer": [
     {
       "transform": [
@@ -99,6 +100,35 @@
         },
         {
           "params": [
+            {
+            "name": "Continent_selection",
+            "select":{
+                "type": "point",
+                "fields": ["Continent"]
+              },
+            "bind": {
+              "name": "Continent Selection: ",
+              "input": "select",
+              "options": [
+                null,
+                "North America",
+                "South America",
+                "Europe",
+                "Africa",
+                "Asia",
+                "Oceania"
+              ],
+              "labels": [
+                "Show All",
+                "North America",
+                "South America",
+                "Europe",
+                "Africa",
+                "Asia",
+                "Oceania"
+              ]
+              }
+            },
             {"name": "grid", "select": "interval", "bind": "scales"},
             {
               "name": "Year",
@@ -127,13 +157,15 @@
               "select": {"type": "point", "fields": ["Country"]}
             }
           ],
-          "transform": [{"filter": {"param": "Year"}}],
-          "mark": {
-            "type": "circle", 
-            "size": 210, 
-            "opacity": 0.9, 
-            "tooltip": true},
-           "encoding": {
+          "transform": [
+            {"filter": {"param": "Continent_selection"}}, 
+            {"filter": {"param": "Year"}}],
+            "mark": {
+              "type": "circle", 
+              "size": 210, 
+              "opacity": 0.9, 
+              "tooltip": true},
+            "encoding": {
             "tooltip": [
               {"field": "Continent", "type": "nominal"},
               {"field": "Country", "type": "nominal"},
@@ -144,7 +176,7 @@
               },
               {
                 "field": "GDP per capita",
-                "type": "quantittive",
+                "type": "quantitative",
                 "format": ".2f"
               }
             ], 
